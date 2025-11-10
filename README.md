@@ -23,21 +23,21 @@ It follows the recommended pattern of keeping reusable configuration in the **ba
 ## 🚀 Usage
 
 ### Apply base  
+```
 kubectl apply -k base/
-
-bash
+```
 
 
 ### Apply dev environment  
+```
 kubectl apply -k overlays/dev/
+```
 
-bash
 
-
-### Apply prod environment  
-kubectl apply -k overlays/prod/
-
-yaml
+### Apply stage environment  
+```
+kubectl apply -k overlays/stage/
+```
 
 
 ---
@@ -65,21 +65,26 @@ spec:
  ```
 
 📚 Kustomize Commands
+
 Build manifest output:
 
-
+````
 kustomize build overlays/dev
+````
+
 View diff between environments:
-
-
+```
 diff <(kustomize build overlays/dev) <(kustomize build overlays/prod)
+```
+
 Validate before applying:
 
-
+```
 kubectl diff -k overlays/dev
+```
+
 🧑‍💻 Author
 Suraj Jadhav
-DevOps • AWS • Kubernetes • Terraform • Jenkins
 
 
 
